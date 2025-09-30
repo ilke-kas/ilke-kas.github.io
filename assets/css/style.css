@@ -1005,10 +1005,13 @@ main {
 .project-img {
   position: relative;
   width: 100%;
-  height: 200px;
+  height: auto;
+  aspect-ratio: 1 / 1;
   border-radius: 16px;
   overflow: hidden;
   margin-bottom: 15px;
+  /* keep an upper limit on very large images while allowing width-based sizing */
+  max-height: 320px;
 }
 
 
@@ -1055,7 +1058,7 @@ main {
   height: 100%;
   object-fit: cover;
   transition: var(--transition-1);
-  aspect-ratio: 3 / 3;
+  aspect-ratio: 1 / 1;
 }
 
 .project-item > a:hover img { transform: scale(1.1); }
@@ -1301,6 +1304,16 @@ textarea.form-input::-webkit-resizer { display: none; }
   .project-img,
   .blog-banner-box { height: auto; }
 
+}
+
+
+/* tighten spacing and cap sizes on very narrow screens (phones) */
+@media (max-width: 449px) {
+  .project-list { gap: 12px; }
+  .project-item { padding: 8px 0; }
+  .project-img { max-height: 220px; border-radius: 12px; }
+  .clients-item img { height: 64px; max-height: 80px; }
+  .clients-list { gap: 18px; padding: 18px; }
 }
 
 
