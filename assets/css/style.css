@@ -792,7 +792,13 @@ main {
 }
 
 .clients-item img {
-  width: 100%;
+  /* slightly larger logos by default; preserve aspect ratio */
+  width: auto;
+  height: 80px;
+  max-height: 100px;
+  display: block;
+  margin: 0 auto;
+  object-fit: contain;
   filter: grayscale(1);
   transition: var(--transition-1);
 }
@@ -1564,6 +1570,12 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .clients-item { min-width: calc(33.33% - 35px); }
 
+  /* slightly larger logos on tablet */
+  .clients-item img {
+    height: 100px;
+    max-height: 130px;
+  }
+
 
 
   /**
@@ -1866,6 +1878,12 @@ textarea.form-input::-webkit-resizer { display: none; }
   /* clients */
 
   .clients-item { min-width: calc(25% - 38px); }
+
+  /* larger logos on desktop */
+  .clients-item img {
+    height: 120px;
+    max-height: 160px;
+  }
 
 
 
